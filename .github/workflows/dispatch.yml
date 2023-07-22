@@ -1,11 +1,6 @@
 name: Repository Dispatch
 on:
   workflow_dispatch:
-    inputs:
-      firstName:
-        description: 'First Name'
-        required: true
-        type: string
 
 jobs:
   demo:
