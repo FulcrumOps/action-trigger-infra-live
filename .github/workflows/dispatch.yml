@@ -1,0 +1,20 @@
+name: Repository Dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      firstName:
+        description: 'First Name'
+        required: true
+        type: string
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.PAT }}
+          repository: FulcrumOps/github-called-workflow
+          event-type: my-event
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
